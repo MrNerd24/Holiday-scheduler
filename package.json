@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
+    "@material-ui/core": "^4.5.0",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.8",
     "@types/react": "16.9.3",
@@ -10,7 +13,10 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "3.1.2",
-    "typescript": "3.6.3"
+    "rxjs": "^6.5.3",
+    "rxjs-hooks": "^0.5.1",
+    "typescript": "3.6.3",
+    "use-observable": "0.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

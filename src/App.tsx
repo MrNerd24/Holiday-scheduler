@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Calendars from "./Calendars/Calendars";
+import styled from "@emotion/styled";
+import {backgroundColor, skyColor} from "./palette";
+import Toolbar from "./Toolbar/Toolbar";
+import {RGBColorToString} from "./Utils/ColorUtils";
+import titleLogo from "./Images/titleLogo.png"
+
+
+const Container = styled('div')<{}>(() => ({
+    height: "100%",
+    // backgroundColor: RGBColorToString(skyColor),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingTop: 50,
+    overflow: "auto",
+}));
+
+const Logo = styled("img")<{}>(() => ({
+}))
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="app-container">
+        <Logo src={titleLogo}/>
+        <Toolbar/>
+        <Calendars/>
+    </Container>
   );
 }
 
