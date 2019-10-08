@@ -6,8 +6,6 @@ import {colorSlide, RGBColorToString} from "../Utils/ColorUtils";
 import DayExpanded from "./DayExpanded";
 import Popper from '@material-ui/core/Popper';
 import useOutsideClick from "../Utils/useOutsideClick";
-import Grow from '@material-ui/core/Grow';
-
 
 const Container = styled('div')<{ index: number; score: number, isBestDay: boolean }>(({index, score, isBestDay}) => ({
     display: "flex",
@@ -15,16 +13,16 @@ const Container = styled('div')<{ index: number; score: number, isBestDay: boole
     backgroundColor: RGBColorToString(colorSlide(backgroundColor, sunnyColor, score)),
     width: 60,
     height: 60,
-    border: isBestDay ? "2px solid green" : undefined,
+    border: isBestDay ? "2px solid MEDIUMSEAGREEN" : undefined,
     position: "relative",
 }));
 
-const DayNum = styled("p")<{}>(() => ({
+const DayNum = styled("p")<{isBestDay: boolean}>(({isBestDay}) => ({
     margin: 0,
     fontSize: 14,
     fontWeight: "bold",
     marginLeft: 4,
-    marginTop: 4,
+    marginTop: isBestDay ? 2 : 4,
 }))
 
 const Temperature = styled("p")<{}>(() => ({
@@ -47,7 +45,7 @@ const Day: React.FC<{ dayNum: number, index: number, data?: DayData, isBestDay: 
     return (
         <Container className="day-container" index={index} score={data && data.score || 0} isBestDay={isBestDay}
                    ref={containerRef} onClick={() => setExpandedViewIsVisible(true)}>
-            <DayNum>{dayNum === 0 ? "" : dayNum}</DayNum>
+            <DayNum isBestDay={isBestDay}>{dayNum === 0 ? "" : dayNum} </DayNum>
             <Temperature>{data && (Math.round(data.maxAirTemperature) + "°C") || ""}</Temperature>
             {data && (
                 <Popper

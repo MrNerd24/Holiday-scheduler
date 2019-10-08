@@ -11,6 +11,7 @@ const Container = styled(Paper)<{}>(() => ({
     padding: 4,
     alignItems: "center",
     marginLeft: 16,
+    flexShrink: 0,
 }));
 
 const DaysInput = styled(TextField)<{}>(() => ({

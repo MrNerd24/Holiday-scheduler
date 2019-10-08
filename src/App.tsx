@@ -1,11 +1,18 @@
 import React from 'react';
 import Calendars from "./Calendars/Calendars";
 import styled from "@emotion/styled";
-import {backgroundColor, skyColor} from "./palette";
 import Toolbar from "./Toolbar/Toolbar";
-import {RGBColorToString} from "./Utils/ColorUtils";
 import titleLogo from "./Images/titleLogo.png"
+import {ThemeProvider} from '@material-ui/styles';
+import {createMuiTheme} from "@material-ui/core";
+import {lightGreen, yellow} from "@material-ui/core/colors";
 
+const theme = createMuiTheme({
+    palette: {
+        primary: { main: yellow[400] }, // Purple and green play nicely together.
+        secondary: { main: lightGreen[500] }, // This is just green.A700 as hex.
+    },
+});
 
 const Container = styled('div')<{}>(() => ({
     height: "100%",
@@ -22,11 +29,14 @@ const Logo = styled("img")<{}>(() => ({
 
 const App: React.FC = () => {
   return (
-    <Container className="app-container">
-        <Logo src={titleLogo}/>
-        <Toolbar/>
-        <Calendars/>
-    </Container>
+      <ThemeProvider theme={theme}>
+          <Container className="app-container">
+              <Logo src={titleLogo}/>
+              <Toolbar/>
+              <Calendars/>
+          </Container>
+      </ThemeProvider>
+
   );
 }
 

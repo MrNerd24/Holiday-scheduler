@@ -55,7 +55,7 @@ const Calendar: React.FC<{month: number, data: DayData[], bestDays: boolean[]}> 
     bestDays = bestDays.slice(bestDaysStartingPosition, bestDaysStartingPosition+numberOfDays)
 
     return (
-        <Container className="Calendar-container">
+        <Container className="Calendar-container" elevation={3}>
             <MonthName>
                 {MonthNames[month]}
             </MonthName>

@@ -14,7 +14,7 @@ const Container = styled('div')<{}>(() => ({
 }));
 
 const AddButton = styled(Button)<{}>(() => ({
-
+    flexShrink: 0,
 }))
 
 
