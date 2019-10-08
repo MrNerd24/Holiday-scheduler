@@ -1,6 +1,7 @@
 import {DayData} from "../DAO/DAO";
 
 export const getBestVacationDays = (data: DayData[], vacationDurations: number[]) => {
+    vacationDurations = vacationDurations.filter((duration) => duration > 0)
     const scoreArray = data.map((datum) => datum.score)
     const scoreSumArray = getSumArray(scoreArray)
     const maximizingWindows = getMaximizingWindows([scoreSumArray], vacationDurations)

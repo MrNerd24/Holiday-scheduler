@@ -8,8 +8,8 @@ const Container = styled('div')<{}>(() => ({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: RGBColorToString(backgroundColor),
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
 }));
 
 const DayName: React.FC<{dayName: String;}> = ({dayName}) => {

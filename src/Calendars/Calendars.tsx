@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Calendar from "./Calendar";
 import {dataSubject, DayData, updateData} from "../DAO/DAO";
 import {useObservable} from "rxjs-hooks";
-import {userSelectedLocationSubject} from "../state";
+import {holidayLengthsSubject, userSelectedLocationSubject} from "../state";
 import {getBestVacationDays} from "../Utils/VacationDaysSelector";
 
 const Container = styled('div')<{}>(() => ({
@@ -19,7 +19,9 @@ const Calendars: React.FC = () => {
 
     const months = [4,5,6,7,8]
     const data = useObservable(() => dataSubject, [])
-    const location = useObservable(() => userSelectedLocationSubject, )
+    const location = useObservable(() => userSelectedLocationSubject)
+    const durations = useObservable(() => holidayLengthsSubject, [])
+
     useEffect(() => {
         if (location) {
             updateData(location[0], location[1])
@@ -27,9 +29,8 @@ const Calendars: React.FC = () => {
     }, [location])
 
     const bestDays = useMemo(() => {
-        let durations = [31]
         return getBestVacationDays(data, durations)
-    }, [data])
+    }, [data, durations])
 
     return (
         <Container className="Calendars-container">
