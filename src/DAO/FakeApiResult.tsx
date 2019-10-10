@@ -15,8 +15,9 @@ export const fakeApiResult: DayData[] = Array.from({length: 153}, (v, k) => {
     const date = new Date(startDate)
     date.setDate(startDate.getDate() + k)
     return {
-        month: date.getMonth(),
-        date: date.getDate(),
+        year: date.getFullYear(),
+        month: date.getMonth()+1,
+        day: date.getDate(),
         clouds: getRandomInteger(1,8),
         airPressure: getRandomFloat(900, 1100),
         relativeHumidity: getRandomFloat(60, 100),

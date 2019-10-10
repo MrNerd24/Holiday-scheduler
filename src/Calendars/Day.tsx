@@ -46,7 +46,7 @@ const Day: React.FC<{ dayNum: number, index: number, data?: DayData, isBestDay: 
         <Container className="day-container" index={index} score={data && data.score || 0} isBestDay={isBestDay}
                    ref={containerRef} onClick={() => setExpandedViewIsVisible(true)}>
             <DayNum isBestDay={isBestDay}>{dayNum === 0 ? "" : dayNum} </DayNum>
-            <Temperature>{data && (Math.round(data.maxAirTemperature) + "°C") || ""}</Temperature>
+            <Temperature>{data && data.maxAirTemperature && (Math.round(data.maxAirTemperature) + "°C") || ""}</Temperature>
             {data && (
                 <Popper
                     open={expandedViewIsVisible}

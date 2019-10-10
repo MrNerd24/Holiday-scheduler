@@ -33,7 +33,7 @@ const HolidayBadge: React.FC<{length: number, index: number, onChange: (length: 
     return (
         <Container className="holiday-selector-container">
             <DaysText>Days:</DaysText>
-            <DaysInput value={length} type="number" placeholder="days" onChange={(event) => onChange(parseInt(event.target.value), index)}/>
+            <DaysInput value={length || ""} type="number" placeholder="days" onChange={(event) => onChange(parseInt(event.target.value), index)}/>
             <RemoveButton onClick={() => onRemove(index)}/>
         </Container>
     );

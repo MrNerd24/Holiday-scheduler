@@ -64,7 +64,7 @@ const Calendar: React.FC<{month: number, data: DayData[], bestDays: boolean[]}> 
                     <DayName key={dayName} dayName={dayName}/>
                 ))}
                 {days.map((day, index) => (
-                    <Day key={index} dayNum={day} index={index} data={data.find((datum) => datum.date === day)} isBestDay={day === 0 ? false : bestDays[day-1]} />
+                    <Day key={index} dayNum={day} index={index} data={data.find((datum) => datum.day === day)} isBestDay={day === 0 ? false : bestDays[day-1]} />
                 ))}
             </GridContainer>
 
