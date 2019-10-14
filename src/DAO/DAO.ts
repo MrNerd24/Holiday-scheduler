@@ -1,7 +1,6 @@
 import {fakeApiResult} from "./FakeApiResult";
 import {BehaviorSubject} from "rxjs";
-import {predictions} from "./Predictions";
-import {calculateScores} from "./ScoreCalculator"
+import Predictions from "./Predictions.json";
 
 export interface DayData {
     year: number;
@@ -36,11 +35,12 @@ export interface StationData {
 export const dataSubject = new BehaviorSubject<DayData[]>([])
 
 export const updateData = (lat: number, long: number, isFake=true) => {
-    // calculateScores()
     if(isFake) {
         dataSubject.next(fakeApiResult)
         return
     }
+
+    const predictions = Predictions as StationData[]
 
     const closestPrediction = predictions.reduce((closest: StationData, current: StationData) => {
         const closestDist = Math.sqrt(Math.pow(lat-closest.Lat, 2) + Math.pow(long-closest.Lon,2))

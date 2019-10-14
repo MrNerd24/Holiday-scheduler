@@ -24,7 +24,6 @@ const Input = styled(TextField)<{}>(() => ({
 const AddressField: React.FC = () => {
 
     const addressFieldRefCallback = useCallback((addressFieldRef) => {
-        console.log(addressFieldRef)
         const options = {
             componentRestrictions: {country: ['fi']},
             types: ['geocode'],
@@ -40,8 +39,6 @@ const AddressField: React.FC = () => {
 
             const lat = place.geometry.location.lat()
             const long = place.geometry.location.lng()
-
-            console.log(lat, long)
 
             userSelectedLocationSubject.next([lat, long])
         });

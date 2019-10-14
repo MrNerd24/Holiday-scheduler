@@ -60,9 +60,9 @@ const DayExpanded: React.FC<{ data: DayData}> = React.forwardRef(({data}, ref) =
     return (
         <Container className="day-expanded-container" ref={ref} elevation={10}>
             <Info>Day temp: {data.maxAirTemperature && Math.round(data.maxAirTemperature) || "-"}'C</Info>
-            <Info>Wind: {data.windDirection || "-"}° {data.windSpeed && Math.round(data.windSpeed) || "-"}m/s</Info>
+            <Info>Wind: {data.windDirection && Math.round(data.windDirection) || "-"}° {data.windSpeed && Math.round(data.windSpeed) || "-"}m/s</Info>
             <Info>Night temp: {data.minAirTemperature && Math.round(data.minAirTemperature) || "-"}'C</Info>
-            <Info>Clouds: {data.clouds || "-"}/8</Info>
+            <Info>Clouds: {data.clouds && Math.round(data.clouds) || "-"}/8</Info>
             <Info>Humidity: {data.relativeHumidity && Math.round(data.relativeHumidity) || "-"}%</Info>
             <Info>Rain: {data.rainIntencity && Math.round(data.rainIntencity) || "-"}mm/h</Info>
         </Container>

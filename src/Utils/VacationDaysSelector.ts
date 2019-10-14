@@ -6,7 +6,6 @@ export const getBestVacationDays = async (data: DayData[], vacationDurations: nu
     const scoreSumArray = getSumArray(scoreArray)
     const maximizingWindows = getMaximizingWindows([scoreSumArray], vacationDurations)
     const positions = maximizingWindows.positions
-    console.log(positions)
     let isBestDay = Array.from({length: data.length}, (v, k) => false);
     for (let positionIndex = 0; positionIndex < positions.length; positionIndex++) {
         let position = positions[positionIndex]
